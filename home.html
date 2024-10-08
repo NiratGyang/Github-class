@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profit or Loss</title>
+  <style>
+    #total{
+      width: 300px;
+      height: 30px;
+      border: none;
+      border-radius: 15px;
+      font-size: larger;
+      font-weight: bolder;
+      cursor: pointer;
+    }
+
+    #total:hover{
+      opacity: 0.5;
+    }
+
+    #total:active{
+      background-color: black;
+    }
+    </style>
+</head>
+<body style="background-color: black;">
+  <div style="width: 50%; margin: auto;">
+    <h1 style="color: white; font-size: 50px;"> Welcome </h1>
+    <h1 style="color: white;"> Never make loss again</h1>
+    <br><br><br>
+    <label for="cost" style="color: white;">Cost Price: </label>
+    <input type="number" id="cost" style="height: 40px; width: 85px; margin-right: 20px;">
+    <label for="sell" style="color: white;">Selling Price: </label>
+    <input type="number" id="sell" style="height: 40px; width: 85px;">
+    <br><br><br>
+    <label for="solution" style="color: white;">P/L: </label>
+    <input type="number" id="solution" style="height: 40px; width: 85px; margin-right: 20px;">
+    <label for="percentage" style="color: white;">Percentage: </label>
+    <input type="number" id="percentage" style="height: 40px; width: 85px;">
+    <br><br><br>
+    <button id="total" onclick="button()"> TOTAL </button>
+    <h1 style="color: white;" id="ft"> </h1>
+  </div>
+  <script>
+    function button() {
+      const cost = parseInt(document.getElementById("cost").value);
+      const sell = parseInt(document.getElementById("sell").value);
+      const PL = sell - cost;
+      const soln = parseInt(document.getElementById("solution").value = PL);
+      const div = PL / cost;
+      const percentage = div * 100;
+      const pLP = parseInt(document.getElementById("percentage").value = percentage);
+
+      if (pLP < 0){
+        document.getElementById("ft").innerHTML = "You experienced a LOSS";
+      }
+      else if( pLP == 0){
+        document.getElementById("ft").innerHTML = "This was an EQUAL trade";
+      }
+      else{
+        document.getElementById("ft").innerHTML = "You experienced a PROFIT";
+      }
+
+    }
+  </script>
+</body>
+</html>
